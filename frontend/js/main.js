@@ -146,57 +146,84 @@ function loadStaticProjects() {
     const staticProjects = [
         {
             id: 1,
-            title: 'Healthcare Predictive Analytics',
-            description: 'Built a machine learning model to predict patient readmission rates with 92% accuracy, helping hospitals optimize resource allocation.',
-            tags: ['Python', 'Scikit-learn', 'Pandas', 'XGBoost'],
-            icon: 'fa-heartbeat',
+            title: 'BCI - Brain-Computer Interface',
+            description: 'Used LDA unsupervised learning model and signal processing on brain-computer interface (BCI) to predict user intentions and enable real-time control of assistive devices for disabled people.',
+            tags: ['Python', 'LDA', 'Signal Processing', 'BCI'],
+            icon: 'fa-brain',
             demo_url: '#',
             github_url: '#'
         },
         {
             id: 2,
-            title: 'Customer Segmentation Dashboard',
-            description: 'Developed an interactive dashboard for e-commerce customer segmentation using clustering algorithms, increasing targeted marketing ROI by 35%.',
-            tags: ['Python', 'K-Means', 'Tableau', 'SQL'],
-            icon: 'fa-shopping-cart',
+            title: 'House Price Prediction',
+            description: 'Developed a U.S. housing price prediction model using XGBoost after applying LDA. The model was deployed with MLflow and integrated into a Streamlit web application for interactive real-time inference.',
+            tags: ['Python', 'XGBoost', 'MLflow', 'Streamlit'],
+            icon: 'fa-home',
             demo_url: '#',
-            github_url: '#'
+            github_url: 'https://github.com/IkrameTaggaa1947/House-Prediction-Model'
         },
         {
             id: 3,
-            title: 'Sentiment Analysis Engine',
-            description: 'Created a real-time sentiment analysis tool for social media monitoring using NLP techniques and deep learning models.',
-            tags: ['Python', 'NLTK', 'TensorFlow', 'BERT'],
-            icon: 'fa-comments',
+            title: 'AI-Driven Solutions for Robots',
+            description: 'Built an AI-based inverse kinematics module for a SCARA robot, testing multiple models (linear regression, KNN, neural networks). Additionally, developed both an object detection and instance segmentation system for a bottle shredder to identify and process plastic bottles using YOLOv8.',
+            tags: ['Python', 'YOLOv8', 'Neural Networks', 'Robotics'],
+            icon: 'fa-robot',
             demo_url: '#',
-            github_url: '#'
+            github_url: 'https://github.com/IkrameTaggaa1947/Double_Segementation_Water_Level'
         },
         {
             id: 4,
-            title: 'Financial Forecasting System',
-            description: 'Implemented time-series forecasting models for stock market prediction using LSTM networks and ensemble methods.',
-            tags: ['Python', 'PyTorch', 'LSTM', 'Prophet'],
-            icon: 'fa-chart-pie',
+            title: 'Hand Gesture Recognition',
+            description: 'Worked on a project that built an interface to control a laptop using real-time hand gestures, using MediaPipe for hand landmark detection and a TensorFlow Lite classifier to map gestures to system actions.',
+            tags: ['Python', 'MediaPipe', 'TensorFlow Lite', 'Computer Vision'],
+            icon: 'fa-hand-paper',
             demo_url: '#',
             github_url: '#'
         },
         {
             id: 5,
-            title: 'Computer Vision Classification',
-            description: 'Designed a convolutional neural network for image classification achieving 95% accuracy on custom dataset with data augmentation techniques.',
-            tags: ['Python', 'TensorFlow', 'CNN', 'OpenCV'],
-            icon: 'fa-image',
+            title: 'Accounting Closing Process - OCP Group',
+            description: 'Developed a web application for OCP to digitalize the accounting closing process, making it easy for the team manager to track task completion, receive automated reminders, and ensure all steps are completed before month-end.',
+            tags: ['Web Development', 'Task Management', 'Automation'],
+            icon: 'fa-calculator',
+            demo_url: '#',
+            github_url: 'https://github.com/IkrameTaggaa1947/Accounting-Management-Web-App'
+        },
+        {
+            id: 6,
+            title: 'Palm Trace - DomSeeds',
+            description: 'Contributed temporarily to the development of a web-based traceability system for date palm trees to enhance the use of existing agricultural data for yield prediction models to help in decision-making.',
+            tags: ['Web Development', 'Agriculture', 'Traceability', 'Prediction'],
+            icon: 'fa-tree',
             demo_url: '#',
             github_url: '#'
         },
         {
-            id: 6,
-            title: 'Recommendation System',
-            description: 'Built a hybrid recommendation engine combining collaborative and content-based filtering for personalized user experiences.',
-            tags: ['Python', 'Surprise', 'Matrix Factorization', 'Flask'],
-            icon: 'fa-robot',
+            id: 7,
+            title: 'Medical Chatbot',
+            description: 'Provides health-related answers by combining large language models with trusted medical encyclopedia data.',
+            tags: ['Python', 'RAG', 'Streamlit', 'LLM'],
+            icon: 'fa-heartbeat',
             demo_url: '#',
-            github_url: '#'
+            github_url: 'https://github.com/IkrameTaggaa1947/Medical-Chatbot-Using-LLM-'
+        },
+        {
+            id: 8,
+            title: 'AI Trip Planner',
+            description: 'A travel assistant that integrates Streamlit and LangGraph to deliver dynamic itinerary planning.',
+            tags: ['Python', 'Streamlit', 'LangGraph', 'Gen AI'],
+            icon: 'fa-plane',
+            demo_url: '#',
+            github_url: 'https://github.com/IkrameTaggaa1947/AI_Trip_Planner'
+        },
+        {
+            id: 9,
+            title: 'Book Recommendation',
+            description: 'Finds your next read based on the specific story you want to experience, not just genres.',
+            tags: ['Python', 'RAG', 'Streamlit', 'NLP'],
+            icon: 'fa-book',
+            demo_url: '#',
+            github_url: 'https://github.com/IkrameTaggaa1947/Book_Recommendation_application-'
         }
     ];
 
