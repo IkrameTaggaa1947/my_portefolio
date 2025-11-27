@@ -250,13 +250,6 @@ contactForm.addEventListener('submit', async (e) => {
     const btnLoading = submitBtn.querySelector('.btn-loading');
     const formMessage = contactForm.querySelector('.form-message');
 
-    // Get form values
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-    };
-
     // Show loading state
     btnText.style.display = 'none';
     btnLoading.style.display = 'inline';
@@ -264,16 +257,44 @@ contactForm.addEventListener('submit', async (e) => {
     formMessage.style.display = 'none';
 
     try {
-        const data = await apiCall(API_CONFIG.ENDPOINTS.CONTACT, {
-            method: 'POST',
-            body: JSON.stringify(formData)
-        });
+        // For production (Netlify), use Netlify Forms
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            // Encode form data for Netlify
+            const formData = new FormData(contactForm);
 
-        if (data.success) {
-            formMessage.textContent = data.message;
-            formMessage.className = 'form-message success';
-            formMessage.style.display = 'block';
-            contactForm.reset();
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            });
+
+            if (response.ok) {
+                formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
+                contactForm.reset();
+            } else {
+                throw new Error('Failed to send message');
+            }
+        } else {
+            // For localhost, use backend API
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            const data = await apiCall(API_CONFIG.ENDPOINTS.CONTACT, {
+                method: 'POST',
+                body: JSON.stringify(formData)
+            });
+
+            if (data.success) {
+                formMessage.textContent = data.message;
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
+                contactForm.reset();
+            }
         }
     } catch (error) {
         formMessage.textContent = error.message || 'An error occurred. Please try again later.';
