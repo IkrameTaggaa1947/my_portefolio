@@ -75,6 +75,12 @@ window.addEventListener('scroll', () => {
 
 // Load Projects from API
 async function loadProjects() {
+    // For static deployment, use static projects directly
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        loadStaticProjects();
+        return;
+    }
+
     try {
         const data = await apiCall(API_CONFIG.ENDPOINTS.PROJECTS);
 
