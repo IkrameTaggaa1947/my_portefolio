@@ -240,62 +240,7 @@ function loadStaticProjects() {
     });
 }
 
-// Contact Form
-const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', async (e) => {
-    const submitBtn = contactForm.querySelector('.submit-btn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoading = submitBtn.querySelector('.btn-loading');
-    const formMessage = contactForm.querySelector('.form-message');
-
-    // For production (Netlify), let the form submit naturally
-    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-        // Show loading state but let Netlify handle the submission
-        btnText.style.display = 'none';
-        btnLoading.style.display = 'inline';
-        submitBtn.disabled = true;
-        // Don't prevent default - let Netlify Forms handle it
-        return;
-    }
-
-    // For localhost, use backend API
-    e.preventDefault();
-
-    // Show loading state
-    btnText.style.display = 'none';
-    btnLoading.style.display = 'inline';
-    submitBtn.disabled = true;
-    formMessage.style.display = 'none';
-
-    try {
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
-
-        const data = await apiCall(API_CONFIG.ENDPOINTS.CONTACT, {
-            method: 'POST',
-            body: JSON.stringify(formData)
-        });
-
-        if (data.success) {
-            formMessage.textContent = data.message;
-            formMessage.className = 'form-message success';
-            formMessage.style.display = 'block';
-            contactForm.reset();
-        }
-    } catch (error) {
-        formMessage.textContent = error.message || 'An error occurred. Please try again later.';
-        formMessage.className = 'form-message error';
-        formMessage.style.display = 'block';
-    } finally {
-        // Reset button state
-        btnText.style.display = 'inline';
-        btnLoading.style.display = 'none';
-        submitBtn.disabled = false;
-    }
-});
+// Contact Form removed - using direct contact info instead
 
 // Chatbot Functionality
 const chatbotToggle = document.getElementById('chatbotToggle');
