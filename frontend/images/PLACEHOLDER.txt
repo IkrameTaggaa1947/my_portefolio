@@ -1,0 +1,5 @@
+Placez votre photo professionnelle ici avec le nom: profile.jpg
+
+Ou copiez manuellement votre photo dans ce dossier et renommez-la en 'profile.jpg'
+
+Pour l'instant, une image par défaut sera utilisée si profile.jpg n'existe pas.
