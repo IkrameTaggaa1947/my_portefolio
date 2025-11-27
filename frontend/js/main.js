@@ -243,12 +243,23 @@ function loadStaticProjects() {
 // Contact Form
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
     const submitBtn = contactForm.querySelector('.submit-btn');
     const btnText = submitBtn.querySelector('.btn-text');
     const btnLoading = submitBtn.querySelector('.btn-loading');
     const formMessage = contactForm.querySelector('.form-message');
+
+    // For production (Netlify), let the form submit naturally
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        // Show loading state but let Netlify handle the submission
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
+        submitBtn.disabled = true;
+        // Don't prevent default - let Netlify Forms handle it
+        return;
+    }
+
+    // For localhost, use backend API
+    e.preventDefault();
 
     // Show loading state
     btnText.style.display = 'none';
@@ -257,44 +268,22 @@ contactForm.addEventListener('submit', async (e) => {
     formMessage.style.display = 'none';
 
     try {
-        // For production (Netlify), use Netlify Forms
-        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-            // Encode form data for Netlify
-            const formData = new FormData(contactForm);
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
 
-            const response = await fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            });
+        const data = await apiCall(API_CONFIG.ENDPOINTS.CONTACT, {
+            method: 'POST',
+            body: JSON.stringify(formData)
+        });
 
-            if (response.ok) {
-                formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
-                formMessage.className = 'form-message success';
-                formMessage.style.display = 'block';
-                contactForm.reset();
-            } else {
-                throw new Error('Failed to send message');
-            }
-        } else {
-            // For localhost, use backend API
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
-
-            const data = await apiCall(API_CONFIG.ENDPOINTS.CONTACT, {
-                method: 'POST',
-                body: JSON.stringify(formData)
-            });
-
-            if (data.success) {
-                formMessage.textContent = data.message;
-                formMessage.className = 'form-message success';
-                formMessage.style.display = 'block';
-                contactForm.reset();
-            }
+        if (data.success) {
+            formMessage.textContent = data.message;
+            formMessage.className = 'form-message success';
+            formMessage.style.display = 'block';
+            contactForm.reset();
         }
     } catch (error) {
         formMessage.textContent = error.message || 'An error occurred. Please try again later.';
