@@ -135,7 +135,7 @@ function createProjectCard(project, index) {
                 ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
             </div>
             <div class="project-links">
-                <a href="${project.demo_url}" class="project-link">
+                <a href="${project.demo_url}" class="project-link"${project.id === 6 ? ' data-demo="safran"' : ''}>
                     <i class="fas fa-external-link-alt"></i> Live Demo
                 </a>
                 <a href="${project.github_url}" class="project-link" target="_blank">
@@ -144,92 +144,103 @@ function createProjectCard(project, index) {
             </div>
         </div>
     `;
-
     return card;
 }
 
+// Modal video logic for Safran project (register only once)
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('demoVideoModal');
+    const closeBtn = document.getElementById('closeDemoVideo');
+    const video = document.getElementById('projectDemoVideo');
+    document.body.addEventListener('click', function (e) {
+        const demoLink = e.target.closest('.project-link[data-demo="safran"]');
+        if (demoLink) {
+            e.preventDefault();
+            modal.style.display = 'block';
+            video.currentTime = 0;
+            video.play();
+        }
+    });
+    if (closeBtn) {
+        closeBtn.onclick = function () {
+            modal.style.display = 'none';
+            video.pause();
+        };
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            video.pause();
+        }
+    };
+});
+
 function loadStaticProjects() {
     const staticProjects = [
+        // Web Development Projects with real clients
         {
             id: 1,
-            title: 'BCI - Brain-Computer Interface',
-            description: 'Used LDA unsupervised learning model and signal processing on brain-computer interface (BCI) to predict user intentions and enable real-time control of assistive devices for disabled people.',
-            tags: ['Python', 'LDA', 'Signal Processing', 'BCI'],
-            icon: 'fa-brain',
-            demo_url: '#',
-            github_url: '#'
-        },
-        {
-            id: 2,
-            title: 'House Price Prediction',
-            description: 'Developed a U.S. housing price prediction model using XGBoost after applying LDA. The model was deployed with MLflow and integrated into a Streamlit web application for interactive real-time inference.',
-            tags: ['Python', 'XGBoost', 'MLflow', 'Streamlit'],
-            icon: 'fa-home',
-            demo_url: '#',
-            github_url: 'https://github.com/IkrameTaggaa1947/House-Prediction-Model'
-        },
-        {
-            id: 3,
-            title: 'AI-Driven Solutions for Robots',
-            description: 'Built an AI-based inverse kinematics module for a SCARA robot, testing multiple models (linear regression, KNN, neural networks). Additionally, developed both an object detection and instance segmentation system for a bottle shredder to identify and process plastic bottles using YOLOv8.',
-            tags: ['Python', 'YOLOv8', 'Neural Networks', 'Robotics'],
-            icon: 'fa-robot',
-            demo_url: '#',
-            github_url: 'https://github.com/IkrameTaggaa1947/Double_Segementation_Water_Level'
-        },
-        {
-            id: 4,
-            title: 'Hand Gesture Recognition',
-            description: 'Worked on a project that built an interface to control a laptop using real-time hand gestures, using MediaPipe for hand landmark detection and a TensorFlow Lite classifier to map gestures to system actions.',
-            tags: ['Python', 'MediaPipe', 'TensorFlow Lite', 'Computer Vision'],
-            icon: 'fa-hand-paper',
-            demo_url: '#',
-            github_url: '#'
-        },
-        {
-            id: 5,
-            title: 'Accounting Closing Process - OCP Group',
-            description: 'Developed a web application for OCP to digitalize the accounting closing process, making it easy for the team manager to track task completion, receive automated reminders, and ensure all steps are completed before month-end.',
-            tags: ['Web Development', 'Task Management', 'Automation'],
+            title: 'Accounting Closing Process – OCP Group',
+            description: 'A web application for OCP to digitalize the accounting closing process, to track task completion, receive automated reminders, and ensure all steps are completed before month-end. Used HTML, CSS, and PHP.',
+            tags: ['HTML', 'CSS', 'PHP', 'Web App'],
             icon: 'fa-calculator',
             demo_url: '#',
             github_url: 'https://github.com/IkrameTaggaa1947/Accounting-Management-Web-App'
         },
         {
-            id: 6,
+            id: 2,
             title: 'Palm Trace - DomSeeds',
-            description: 'Contributed temporarily to the development of a web-based traceability system for date palm trees to enhance the use of existing agricultural data for yield prediction models to help in decision-making.',
-            tags: ['Web Development', 'Agriculture', 'Traceability', 'Prediction'],
+            description: 'A traceability web application for date palm trees that leverages agricultural data to analyze yield and monitor farm health. Used React and PostgreSQL (inside Lovable) to build an interactive map showing regions, tree blocks, and individual trees, alongside dashboards displaying KPIs.',
+            tags: ['React', 'PostgreSQL', 'Traceability', 'Dashboard'],
             icon: 'fa-tree',
+            demo_url: '#',
+            github_url: '#'
+        },
+        // Machine Learning and AI projects
+        {
+            id: 3,
+            title: 'NeuraTech – Brain-Computer Interface (BCI) Healthcare Startup',
+            description: 'Developed under the supervision of a multidisciplinary research team and mentored through the MIT Sandbox Explorer Program, NeuraTech focused on decoding motor intent from EEG signals for assistive communication. Implemented an LDA-based model to classify left- vs right-hand motor imagery using µ- and β-band filtering, ICA-based artifact removal, and CSP feature extraction, enabling a real-time adaptive interface for paralyzed, non-verbal patients.',
+            tags: ['Python', 'EEG', 'LDA', 'CSP', 'Healthcare'],
+            icon: 'fa-brain',
+            demo_url: '#',
+            github_url: '#'
+        },
+        {
+            id: 4,
+            title: 'ECG-Based Heart Disease Detection Platform',
+            description: 'Developed an end-to-end web platform for cardiac anomaly detection where doctors upload ECG signals and patient clinical data (age, sex, weight, etc.) to receive automated diagnostic insights. Implemented a machine-learning pipeline using Random Forest for initial clustering followed by Random Forest classification on embedded ECG features, and explored a deep learning approach based on Transformers. Integrated a patient-facing chatbot to provide real-time, personalized health information.',
+            tags: ['Python', 'ECG', 'Random Forest', 'Transformers', 'Chatbot'],
+            icon: 'fa-heartbeat',
+            demo_url: '#',
+            github_url: '#'
+        },
+        {
+            id: 5,
+            title: 'Medical Chatbot',
+            description: 'Provides health-related answers by combining LLMs with a medical encyclopedia data. Solved hallucinations with recursive chunking and strict RAG constraints, improved accuracy with R.I.S.E. prompting, and implemented safety checks for sensitive queries.',
+            tags: ['Python', 'LLM', 'RAG', 'Prompt Engineering'],
+            icon: 'fa-comments-medical',
+            demo_url: '#',
+            github_url: 'https://github.com/IkrameTaggaa1947/Medical-Chatbot-Using-LLM-'
+        },
+        {
+            id: 6,
+            title: 'Secure AI Platform for Safran – Chatbot & Training Evaluation Analytics',
+            description: 'Developed a secure internal chatbot using a RAG architecture to answer general employee queries from internal documentation, with anonymization, authentication, Dockerized deployment, and Apache Airflow for automatic data ingestion and embedding. In parallel, built an application for training evaluation tracking, displaying anonymized employee feedback and applying clustering models to group qualitative returns into actionable themes.',
+            tags: ['Python', 'RAG', 'Docker', 'Airflow', 'Clustering'],
+            icon: 'fa-shield-alt',
             demo_url: '#',
             github_url: '#'
         },
         {
             id: 7,
-            title: 'Medical Chatbot',
-            description: 'Provides health-related answers by combining large language models with trusted medical encyclopedia data.',
-            tags: ['Python', 'RAG', 'Streamlit', 'LLM'],
-            icon: 'fa-heartbeat',
+            title: 'Automated Plastic Waste Sorting – Computer Vision & Robotics',
+            description: 'Developed a pipeline to detect water bottles, verify they are uncapped and empty, and trigger their delivery to a robotic shredder. Applied instance segmentation (YOLOv8) for bottle detection and classification (ResNet) to identify water brands, enabling real-time statistical tracking of shredded bottles.',
+            tags: ['Python', 'YOLOv8', 'ResNet', 'Robotics', 'Computer Vision'],
+            icon: 'fa-recycle',
             demo_url: '#',
-            github_url: 'https://github.com/IkrameTaggaa1947/Medical-Chatbot-Using-LLM-'
-        },
-        {
-            id: 8,
-            title: 'AI Trip Planner',
-            description: 'A travel assistant that integrates Streamlit and LangGraph to deliver dynamic itinerary planning.',
-            tags: ['Python', 'Streamlit', 'LangGraph', 'Gen AI'],
-            icon: 'fa-plane',
-            demo_url: '#',
-            github_url: 'https://github.com/IkrameTaggaa1947/AI_Trip_Planner'
-        },
-        {
-            id: 9,
-            title: 'Book Recommendation',
-            description: 'Finds your next read based on the specific story you want to experience, not just genres.',
-            tags: ['Python', 'RAG', 'Streamlit', 'NLP'],
-            icon: 'fa-book',
-            demo_url: '#',
-            github_url: 'https://github.com/IkrameTaggaa1947/Book_Recommendation_application-'
+            github_url: '#'
         }
     ];
 
