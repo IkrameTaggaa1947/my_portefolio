@@ -179,8 +179,7 @@ my_portfolio/
 ##  Deployment Options
 
 ### Frontend Deployment:
-- **Netlify** (Recommended - Free)
-- **Vercel** (Free)
+- **Vercel** (Recommended - Free)
 - **GitHub Pages** (Free)
 - **AWS S3 + CloudFront**
 

@@ -144,34 +144,6 @@ function createProjectCard(project, index) {
     return card;
 }
 
-// Modal video logic for Safran project (register only once)
-document.addEventListener('DOMContentLoaded', function () {
-    const modal = document.getElementById('demoVideoModal');
-    const closeBtn = document.getElementById('closeDemoVideo');
-    const video = document.getElementById('projectDemoVideo');
-    document.body.addEventListener('click', function (e) {
-        const demoLink = e.target.closest('.project-link[data-demo="safran"]');
-        if (demoLink) {
-            e.preventDefault();
-            modal.style.display = 'block';
-            video.currentTime = 0;
-            video.play();
-        }
-    });
-    if (closeBtn) {
-        closeBtn.onclick = function () {
-            modal.style.display = 'none';
-            video.pause();
-        };
-    }
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-            video.pause();
-        }
-    };
-});
-
 function loadStaticProjects() {
     const staticProjects = [
         // Web Development Projects with real clients

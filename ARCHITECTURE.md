@@ -324,8 +324,8 @@ backend/
 ### Production (Recommended)
 ```
 ┌─────────────────────────────────────────┐
-│         Frontend (Netlify/Vercel)       │
-│         https://yourname.netlify.app    │
+│         Frontend (Vercel/GitHub Pages)  │
+│         https://yourname.vercel.app     │
 └──────────────┬──────────────────────────┘
                │
                │ API Calls
