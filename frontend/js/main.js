@@ -135,9 +135,6 @@ function createProjectCard(project, index) {
                 ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
             </div>
             <div class="project-links">
-                <a href="${project.demo_url}" class="project-link"${project.id === 6 ? ' data-demo="safran"' : ''}>
-                    <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
                 <a href="${project.github_url}" class="project-link" target="_blank">
                     <i class="fab fa-github"></i> GitHub
                 </a>
@@ -184,7 +181,6 @@ function loadStaticProjects() {
             description: 'A web application for OCP to digitalize the accounting closing process, to track task completion, receive automated reminders, and ensure all steps are completed before month-end. Used HTML, CSS, and PHP.',
             tags: ['HTML', 'CSS', 'PHP', 'Web App'],
             icon: 'fa-calculator',
-            demo_url: '#',
             github_url: 'https://github.com/IkrameTaggaa1947/Accounting-Management-Web-App'
         },
         {
@@ -193,7 +189,6 @@ function loadStaticProjects() {
             description: 'A traceability web application for date palm trees that leverages agricultural data to analyze yield and monitor farm health. Used React and PostgreSQL (inside Lovable) to build an interactive map showing regions, tree blocks, and individual trees, alongside dashboards displaying KPIs.',
             tags: ['React', 'PostgreSQL', 'Traceability', 'Dashboard'],
             icon: 'fa-tree',
-            demo_url: '#',
             github_url: '#'
         },
         // Machine Learning and AI projects

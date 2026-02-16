@@ -1,18 +1,27 @@
 /* ===== CSS VARIABLES ===== */
 :root {
-    --primary-color: #6366f1;
-    --secondary-color: #4f46e5;
-    --accent-color: #06b6d4;
-    --dark-bg: #0a0a0f;
-    --darker-bg: #050508;
-    --card-bg: #141420;
-    --light-bg: #16162a;
-    --text-dark: #e5e7eb;
-    --text-light: #9ca3af;
+    --primary-color: #1f222b;
+    /* Main dark */
+    --secondary-color: #8f9294;
+    /* Muted gray */
+    --accent-color: #a4bcc4;
+    /* Soft blue-gray accent */
+    --dark-bg: #f4f3f3;
+    /* Lightest background */
+    --darker-bg: #d9e0e2;
+    /* Light gray for contrast */
+    --card-bg: #ffffff;
+    /* Card white */
+    --light-bg: #d9e0e2;
+    /* Lighter gray */
+    --text-dark: #1f222b;
+    /* Main text */
+    --text-light: #8f9294;
+    /* Muted text */
     --white: #ffffff;
-    --gradient: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
-    --gradient-alt: linear-gradient(135deg, #3730a3 0%, #4f46e5 100%);
-    --gradient-hero: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #0f0f1e 100%);
+    --gradient: linear-gradient(135deg, #1f222b 0%, #a4bcc4 100%);
+    --gradient-alt: linear-gradient(135deg, #8f9294 0%, #a4bcc4 100%);
+    --gradient-hero: linear-gradient(135deg, #f4f3f3 0%, #d9e0e2 50%, #f4f3f3 100%);
 }
 
 /* ===== GLOBAL STYLES ===== */
@@ -27,7 +36,7 @@ html {
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Segoe UI', 'Roboto', 'Lato', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--dark-bg);
@@ -43,7 +52,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', 'Roboto', 'Lato', Arial, sans-serif;
     font-weight: 600;
 }
 
@@ -101,17 +110,17 @@ img {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 10, 15, 0.95);
-    box-shadow: 0 2px 20px rgba(99, 102, 241, 0.08);
+    background: var(--card-bg);
+    box-shadow: 0 2px 20px rgba(58, 80, 107, 0.08);
     z-index: 1000;
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+    border-bottom: 1px solid rgba(58, 80, 107, 0.08);
 }
 
 .navbar.scrolled {
-    background: rgba(10, 10, 15, 0.98);
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 30px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 2px 30px rgba(58, 80, 107, 0.12);
 }
 
 .nav-container {
@@ -127,7 +136,7 @@ img {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', 'Roboto', 'Lato', Arial, sans-serif;
 }
 
 .nav-menu {
@@ -189,8 +198,8 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(79, 70, 229, 0.08) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(91, 192, 190, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(58, 80, 107, 0.08) 0%, transparent 50%);
 }
 
 .hero::after {
@@ -199,7 +208,7 @@ img {
     width: 100%;
     height: 100%;
     background-image:
-        radial-gradient(circle, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+        radial-gradient(circle, rgba(58, 80, 107, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     opacity: 0.2;
 }
@@ -269,7 +278,7 @@ img {
 }
 
 .hero-content {
-    color: var(--white);
+    color: var(--text-dark);
     text-align: left;
 }
 
@@ -278,22 +287,22 @@ img {
     align-items: center;
     gap: 8px;
     padding: 8px 20px;
-    background: rgba(99, 102, 241, 0.15);
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    background: rgba(91, 192, 190, 0.15);
+    border: 1px solid var(--accent-color);
     border-radius: 50px;
     font-size: 0.9rem;
-    color: var(--white);
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
     animation: fadeInDown 1s ease;
 }
 
 .hero-badge i {
-    color: #818cf8;
+    color: var(--accent-color);
     animation: sparkle 2s infinite;
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+    background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -309,7 +318,7 @@ img {
 .hero-subtitle {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--secondary-color);
     animation: fadeInUp 1s ease 0.2s backwards;
 }
 
@@ -329,7 +338,7 @@ img {
     font-size: 1.2rem;
     max-width: 700px;
     margin: 0 0 2rem 0;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-light);
     animation: fadeInUp 1s ease 0.4s backwards;
 }
 
@@ -367,14 +376,14 @@ img {
 .circle-1 {
     width: 100%;
     height: 100%;
-    border: 3px solid rgba(99, 102, 241, 0.25);
+    border: 3px solid var(--primary-color);
     animation-duration: 15s;
 }
 
 .circle-2 {
     width: 85%;
     height: 85%;
-    border: 2px solid rgba(79, 70, 229, 0.25);
+    border: 2px solid var(--secondary-color);
     animation-duration: 20s;
     animation-direction: reverse;
 }
@@ -382,7 +391,7 @@ img {
 .circle-3 {
     width: 70%;
     height: 70%;
-    border: 2px solid rgba(6, 182, 212, 0.25);
+    border: 2px solid var(--accent-color);
     animation-duration: 25s;
 }
 
