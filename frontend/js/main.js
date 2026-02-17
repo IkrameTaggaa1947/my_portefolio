@@ -146,35 +146,9 @@ function createProjectCard(project, index) {
 
 function loadStaticProjects() {
     const staticProjects = [
-        // Web Development Projects with real clients
+        // Bioinformatics & Healthcare Projects
         {
             id: 1,
-            title: 'Accounting Closing Process – OCP Group',
-            description: 'A web application for OCP to digitalize the accounting closing process, to track task completion, receive automated reminders, and ensure all steps are completed before month-end. Used HTML, CSS, and PHP.',
-            tags: ['HTML', 'CSS', 'PHP', 'Web App'],
-            icon: 'fa-calculator',
-            github_url: 'https://github.com/IkrameTaggaa1947/Accounting-Management-Web-App'
-        },
-        {
-            id: 2,
-            title: 'Palm Trace - DomSeeds',
-            description: 'A traceability web application for date palm trees that leverages agricultural data to analyze yield and monitor farm health. Used React and PostgreSQL (inside Lovable) to build an interactive map showing regions, tree blocks, and individual trees, alongside dashboards displaying KPIs.',
-            tags: ['React', 'PostgreSQL', 'Traceability', 'Dashboard'],
-            icon: 'fa-tree',
-            github_url: '#'
-        },
-        // Machine Learning and AI projects
-        {
-            id: 3,
-            title: 'NeuraTech – Brain-Computer Interface (BCI) Healthcare Startup',
-            description: 'Developed under the supervision of a multidisciplinary research team and mentored through the MIT Sandbox Explorer Program, NeuraTech focused on decoding motor intent from EEG signals for assistive communication. Implemented an LDA-based model to classify left- vs right-hand motor imagery using µ- and β-band filtering, ICA-based artifact removal, and CSP feature extraction, enabling a real-time adaptive interface for paralyzed, non-verbal patients.',
-            tags: ['Python', 'EEG', 'LDA', 'CSP', 'Healthcare'],
-            icon: 'fa-brain',
-            demo_url: '#',
-            github_url: '#'
-        },
-        {
-            id: 4,
             title: 'ECG-Based Heart Disease Detection Platform',
             description: 'Developed an end-to-end web platform for cardiac anomaly detection where doctors upload ECG signals and patient clinical data (age, sex, weight, etc.) to receive automated diagnostic insights. Implemented a machine-learning pipeline using Random Forest for initial clustering followed by Random Forest classification on embedded ECG features, and explored a deep learning approach based on Transformers. Integrated a patient-facing chatbot to provide real-time, personalized health information.',
             tags: ['Python', 'ECG', 'Random Forest', 'Transformers', 'Chatbot'],
@@ -183,7 +157,16 @@ function loadStaticProjects() {
             github_url: '#'
         },
         {
-            id: 5,
+            id: 2,
+            title: 'NeuraTech – Brain-Computer Interface (BCI) Healthcare Startup',
+            description: 'Developed under the supervision of a multidisciplinary research team and mentored through the MIT Sandbox Explorer Program, NeuraTech focused on decoding motor intent from EEG signals for assistive communication. Implemented an LDA-based model to classify left- vs right-hand motor imagery using µ- and β-band filtering, ICA-based artifact removal, and CSP feature extraction, enabling a real-time adaptive interface for paralyzed, non-verbal patients.',
+            tags: ['Python', 'EEG', 'LDA', 'CSP', 'Healthcare'],
+            icon: 'fa-brain',
+            demo_url: '#',
+            github_url: '#'
+        },
+        {
+            id: 3,
             title: 'Medical Chatbot',
             description: 'Provides health-related answers by combining LLMs with a medical encyclopedia data. Solved hallucinations with recursive chunking and strict RAG constraints, improved accuracy with R.I.S.E. prompting, and implemented safety checks for sensitive queries.',
             tags: ['Python', 'LLM', 'RAG', 'Prompt Engineering'],
@@ -191,8 +174,19 @@ function loadStaticProjects() {
             demo_url: '#',
             github_url: 'https://github.com/IkrameTaggaa1947/Medical-Chatbot-Using-LLM-'
         },
+        // Robotics & Computer Vision
         {
-            id: 6,
+            id: 4,
+            title: 'Automated Plastic Waste Sorting – Computer Vision & Robotics',
+            description: 'Developed a pipeline to detect water bottles, verify they are uncapped and empty, and trigger their delivery to a robotic shredder. Applied instance segmentation (YOLOv8) for bottle detection and classification (ResNet) to identify water brands, enabling real-time statistical tracking of shredded bottles.',
+            tags: ['Python', 'YOLOv8', 'ResNet', 'Robotics', 'Computer Vision'],
+            icon: 'fa-recycle',
+            demo_url: '#',
+            github_url: '#'
+        },
+        // Other Projects
+        {
+            id: 5,
             title: 'Secure AI Platform for Safran – Chatbot & Training Evaluation Analytics',
             description: 'Developed a secure internal chatbot using a RAG architecture to answer general employee queries from internal documentation, with anonymization, authentication, Dockerized deployment, and Apache Airflow for automatic data ingestion and embedding. In parallel, built an application for training evaluation tracking, displaying anonymized employee feedback and applying clustering models to group qualitative returns into actionable themes.',
             tags: ['Python', 'RAG', 'Docker', 'Airflow', 'Clustering'],
@@ -201,12 +195,19 @@ function loadStaticProjects() {
             github_url: '#'
         },
         {
+            id: 6,
+            title: 'Accounting Closing Process – OCP Group',
+            description: 'A web application for OCP to digitalize the accounting closing process, to track task completion, receive automated reminders, and ensure all steps are completed before month-end. Used HTML, CSS, and PHP.',
+            tags: ['HTML', 'CSS', 'PHP', 'Web App'],
+            icon: 'fa-calculator',
+            github_url: 'https://github.com/IkrameTaggaa1947/Accounting-Management-Web-App'
+        },
+        {
             id: 7,
-            title: 'Automated Plastic Waste Sorting – Computer Vision & Robotics',
-            description: 'Developed a pipeline to detect water bottles, verify they are uncapped and empty, and trigger their delivery to a robotic shredder. Applied instance segmentation (YOLOv8) for bottle detection and classification (ResNet) to identify water brands, enabling real-time statistical tracking of shredded bottles.',
-            tags: ['Python', 'YOLOv8', 'ResNet', 'Robotics', 'Computer Vision'],
-            icon: 'fa-recycle',
-            demo_url: '#',
+            title: 'Palm Trace - DomSeeds',
+            description: 'A traceability web application for date palm trees that leverages agricultural data to analyze yield and monitor farm health. Used React and PostgreSQL (inside Lovable) to build an interactive map showing regions, tree blocks, and individual trees, alongside dashboards displaying KPIs.',
+            tags: ['React', 'PostgreSQL', 'Traceability', 'Dashboard'],
+            icon: 'fa-tree',
             github_url: '#'
         }
     ];
