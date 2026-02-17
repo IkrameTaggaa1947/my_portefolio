@@ -121,6 +121,22 @@ function createProjectCard(project, index) {
 
     const imageUrl = projectImages[project.title] || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop';
 
+    let linksHtml = '';
+
+    if (project.github_urls && project.github_urls.length > 0) {
+        linksHtml = project.github_urls.map(link => `
+            <a href="${link.url}" class="project-link" target="_blank">
+                <i class="fab fa-github"></i> ${link.label || 'GitHub'}
+            </a>
+        `).join('');
+    } else if (project.github_url && project.github_url !== '#') {
+        linksHtml = `
+            <a href="${project.github_url}" class="project-link" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        `;
+    }
+
     card.innerHTML = `
         <div class="project-image">
             <img src="${imageUrl}" alt="${project.title}" class="project-img">
@@ -135,9 +151,7 @@ function createProjectCard(project, index) {
                 ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
             </div>
             <div class="project-links">
-                <a href="${project.github_url}" class="project-link" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+                ${linksHtml}
             </div>
         </div>
     `;
@@ -153,8 +167,7 @@ function loadStaticProjects() {
             description: 'Developed an end-to-end web platform for cardiac anomaly detection where doctors upload ECG signals and patient clinical data (age, sex, weight, etc.) to receive automated diagnostic insights. Implemented a machine-learning pipeline using Random Forest for initial clustering followed by Random Forest classification on embedded ECG features, and explored a deep learning approach based on Transformers. Integrated a patient-facing chatbot to provide real-time, personalized health information.',
             tags: ['Python', 'ECG', 'Random Forest', 'Transformers', 'Chatbot'],
             icon: 'fa-heartbeat',
-            demo_url: '#',
-            github_url: '#'
+            github_url: 'https://github.com/IkrameTaggaa1947/ECG-Anomaly-Detection-'
         },
         {
             id: 2,
@@ -162,8 +175,7 @@ function loadStaticProjects() {
             description: 'Developed under the supervision of a multidisciplinary research team and mentored through the MIT Sandbox Explorer Program, NeuraTech focused on decoding motor intent from EEG signals for assistive communication. Implemented an LDA-based model to classify left- vs right-hand motor imagery using µ- and β-band filtering, ICA-based artifact removal, and CSP feature extraction, enabling a real-time adaptive interface for paralyzed, non-verbal patients.',
             tags: ['Python', 'EEG', 'LDA', 'CSP', 'Healthcare'],
             icon: 'fa-brain',
-            demo_url: '#',
-            github_url: '#'
+            github_url: 'https://github.com/IkrameTaggaa1947/NeuraTech'
         },
         {
             id: 3,
@@ -171,7 +183,6 @@ function loadStaticProjects() {
             description: 'Provides health-related answers by combining LLMs with a medical encyclopedia data. Solved hallucinations with recursive chunking and strict RAG constraints, improved accuracy with R.I.S.E. prompting, and implemented safety checks for sensitive queries.',
             tags: ['Python', 'LLM', 'RAG', 'Prompt Engineering'],
             icon: 'fa-comments-medical',
-            demo_url: '#',
             github_url: 'https://github.com/IkrameTaggaa1947/Medical-Chatbot-Using-LLM-'
         },
         // Robotics & Computer Vision
@@ -181,8 +192,7 @@ function loadStaticProjects() {
             description: 'Developed a pipeline to detect water bottles, verify they are uncapped and empty, and trigger their delivery to a robotic shredder. Applied instance segmentation (YOLOv8) for bottle detection and classification (ResNet) to identify water brands, enabling real-time statistical tracking of shredded bottles.',
             tags: ['Python', 'YOLOv8', 'ResNet', 'Robotics', 'Computer Vision'],
             icon: 'fa-recycle',
-            demo_url: '#',
-            github_url: '#'
+            github_url: 'https://github.com/IkrameTaggaa1947/Double_Segementation_Water_Level'
         },
         // Other Projects
         {
@@ -191,8 +201,10 @@ function loadStaticProjects() {
             description: 'Developed a secure internal chatbot using a RAG architecture to answer general employee queries from internal documentation, with anonymization, authentication, Dockerized deployment, and Apache Airflow for automatic data ingestion and embedding. In parallel, built an application for training evaluation tracking, displaying anonymized employee feedback and applying clustering models to group qualitative returns into actionable themes.',
             tags: ['Python', 'RAG', 'Docker', 'Airflow', 'Clustering'],
             icon: 'fa-shield-alt',
-            demo_url: '#',
-            github_url: '#'
+            github_urls: [
+                { label: 'Chatbot Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_Chatbot_for_HR' },
+                { label: 'Evaluation Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_evaluation_des_formations' }
+            ]
         },
         {
             id: 6,
