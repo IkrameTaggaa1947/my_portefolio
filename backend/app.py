@@ -223,8 +223,10 @@ def get_projects():
             'icon': 'fa-shield-alt',
             'demo_url': '#',
             'github_urls': [
-                {'label': 'Chatbot Repo', 'url': 'https://github.com/IkrameTaggaa1947/T2D_Chatbot_for_HR'},
-                {'label': 'Evaluation Repo', 'url': 'https://github.com/IkrameTaggaa1947/T2D_evaluation_des_formations'}
+                {'label': 'Chatbot Repo',
+                    'url': 'https://github.com/IkrameTaggaa1947/T2D_Chatbot_for_HR'},
+                {'label': 'Evaluation Repo',
+                    'url': 'https://github.com/IkrameTaggaa1947/T2D_evaluation_des_formations'}
             ]
         },
         {
