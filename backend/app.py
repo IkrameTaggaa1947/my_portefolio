@@ -186,7 +186,8 @@ def get_projects():
             'tags': ['Python', 'ECG', 'Random Forest', 'Transformers', 'Chatbot'],
             'icon': 'fa-heartbeat',
             'demo_url': '#',
-            'github_url': 'https://github.com/IkrameTaggaa1947/ECG-Anomaly-Detection-'
+            'github_url': 'https://github.com/IkrameTaggaa1947/ECG-Anomaly-Detection-',
+            'report_url': 'reports/ECG_report.pdf'
         },
         {
             'id': 2,

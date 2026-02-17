@@ -137,6 +137,14 @@ function createProjectCard(project, index) {
         `;
     }
 
+    if (project.report_url) {
+        linksHtml += `
+            <a href="${project.report_url}" class="project-link" target="_blank">
+                <i class="fas fa-file-pdf"></i> Read Report
+            </a>
+        `;
+    }
+
     card.innerHTML = `
         <div class="project-image">
             <img src="${imageUrl}" alt="${project.title}" class="project-img">
@@ -167,7 +175,8 @@ function loadStaticProjects() {
             description: 'Developed an end-to-end web platform for cardiac anomaly detection where doctors upload ECG signals and patient clinical data (age, sex, weight, etc.) to receive automated diagnostic insights. Implemented a machine-learning pipeline using Random Forest for initial clustering followed by Random Forest classification on embedded ECG features, and explored a deep learning approach based on Transformers. Integrated a patient-facing chatbot to provide real-time, personalized health information.',
             tags: ['Python', 'ECG', 'Random Forest', 'Transformers', 'Chatbot'],
             icon: 'fa-heartbeat',
-            github_url: 'https://github.com/IkrameTaggaa1947/ECG-Anomaly-Detection-'
+            github_url: 'https://github.com/IkrameTaggaa1947/ECG-Anomaly-Detection-',
+            report_url: 'reports/ECG_report.pdf'
         },
         {
             id: 2,
