@@ -214,7 +214,8 @@ def get_projects():
             'tags': ['Python', 'YOLOv8', 'ResNet', 'Robotics', 'Computer Vision'],
             'icon': 'fa-recycle',
             'demo_url': '#',
-            'github_url': 'https://github.com/IkrameTaggaa1947/Double_Segementation_Water_Level'
+            'github_url': 'https://github.com/IkrameTaggaa1947/Double_Segementation_Water_Level',
+            'report_url': 'reports/Dossier_de_définition_robotique.pdf'
         },
         {
             'id': 5,

@@ -201,7 +201,8 @@ function loadStaticProjects() {
             description: 'Developed a pipeline to detect water bottles, verify they are uncapped and empty, and trigger their delivery to a robotic shredder. Applied instance segmentation (YOLOv8) for bottle detection and classification (ResNet) to identify water brands, enabling real-time statistical tracking of shredded bottles.',
             tags: ['Python', 'YOLOv8', 'ResNet', 'Robotics', 'Computer Vision'],
             icon: 'fa-recycle',
-            github_url: 'https://github.com/IkrameTaggaa1947/Double_Segementation_Water_Level'
+            github_url: 'https://github.com/IkrameTaggaa1947/Double_Segementation_Water_Level',
+            report_url: 'reports/Dossier_de_définition_robotique.pdf'
         },
         // Other Projects
         {
