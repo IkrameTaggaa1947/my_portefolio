@@ -1,27 +1,27 @@
 /* ===== CSS VARIABLES ===== */
 :root {
-    --primary-color: #0f172a;
-    /* Deep Navy - Professional & Trustworthy */
-    --secondary-color: #64748b;
-    /* Slate Gray - Sophisticated */
-    --accent-color: #0891b2;
-    /* Cyan/Teal - Modern & Innovative */
+    --primary-color: #011f4b;
+    /* Darkest Navy - Professional & Bold */
+    --secondary-color: #6497b1;
+    /* Light Blue - Sophisticated */
+    --accent-color: #005b96;
+    /* Medium Blue - Vibrant Accent */
     --dark-bg: #f8fafc;
     /* Clean White Background */
-    --darker-bg: #e2e8f0;
-    /* Light Slate for contrast */
+    --darker-bg: #b3cde0;
+    /* Lightest Blue for contrast */
     --card-bg: #ffffff;
     /* Card white */
-    --light-bg: #f1f5f9;
-    /* Soft Gray */
-    --text-dark: #0f172a;
+    --light-bg: #e8f1f8;
+    /* Soft Blue-tinted Gray */
+    --text-dark: #011f4b;
     /* Main text */
-    --text-light: #64748b;
+    --text-light: #03396c;
     /* Muted text */
     --white: #ffffff;
-    --gradient: linear-gradient(135deg, #0f172a 0%, #0891b2 100%);
-    --gradient-alt: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
-    --gradient-hero: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f8fafc 100%);
+    --gradient: linear-gradient(135deg, #011f4b 0%, #005b96 100%);
+    --gradient-alt: linear-gradient(135deg, #005b96 0%, #6497b1 100%);
+    --gradient-hero: linear-gradient(135deg, #f8fafc 0%, #b3cde0 50%, #f8fafc 100%);
 }
 
 /* ===== GLOBAL STYLES ===== */
@@ -198,8 +198,8 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(8, 145, 178, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(15, 23, 42, 0.08) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(0, 91, 150, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(1, 31, 75, 0.08) 0%, transparent 50%);
 }
 
 .hero::after {
@@ -208,7 +208,7 @@ img {
     width: 100%;
     height: 100%;
     background-image:
-        radial-gradient(circle, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+        radial-gradient(circle, rgba(1, 31, 75, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     opacity: 0.2;
 }
@@ -429,7 +429,7 @@ img {
     justify-content: center;
     font-size: 1.5rem;
     color: var(--accent-color);
-    box-shadow: 0 5px 20px rgba(8, 145, 178, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 91, 150, 0.2);
     animation: float 4s ease-in-out infinite;
 }
 
@@ -1202,7 +1202,7 @@ img {
 .chatbot-input {
     flex: 1;
     padding: 10px;
-    border: 2px solid rgba(8, 145, 178, 0.3);
+    border: 2px solid rgba(0, 91, 150, 0.3);
     border-radius: 20px;
     font-family: 'Open Sans', sans-serif;
     background: var(--darker-bg);
@@ -1212,7 +1212,7 @@ img {
 .chatbot-input:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 91, 150, 0.1);
 }
 
 .chatbot-send {
