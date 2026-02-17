@@ -3,7 +3,7 @@
   publish = "frontend"
   
   # No build command needed for static site
-  command = ""
+  command = "echo 'Static site - no build required'"
 
 # Headers for better caching and security
 [[headers]]
