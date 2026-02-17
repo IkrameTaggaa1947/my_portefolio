@@ -1,6 +1,6 @@
 [build]
-  # Directory to publish (relative to root)
-  publish = "frontend"
+  # Since base directory is "frontend" in Netlify settings, publish from current dir
+  publish = "."
   
   # No build command needed for static site
   command = "echo 'Static site - no build required'"
