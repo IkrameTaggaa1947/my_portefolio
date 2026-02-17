@@ -6,7 +6,7 @@ Write-Host "  Gestionnaire de Certificats Portfolio" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
-$certFolder = "$PSScriptRoot\frontend\certificates"
+$certFolder = "$PSScriptRoot\..\frontend\certificates"
 
 # Liste des certificats attendus
 $certificates = @{

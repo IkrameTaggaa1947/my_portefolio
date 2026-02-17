@@ -11,7 +11,7 @@ Write-Host "  Ajouter Votre Photo au Portfolio" -ForegroundColor Cyan
 Write-Host "==================================" -ForegroundColor Cyan
 Write-Host ""
 
-$destinationPath = "$PSScriptRoot\frontend\images\profile.jpg"
+$destinationPath = "$PSScriptRoot\..\frontend\images\profile.jpg"
 
 if ([string]::IsNullOrEmpty($PhotoPath)) {
     Write-Host "Aucun chemin fourni. Recherche de photos sur le Bureau..." -ForegroundColor Yellow
