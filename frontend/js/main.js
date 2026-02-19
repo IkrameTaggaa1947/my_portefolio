@@ -122,6 +122,7 @@ function createProjectCard(project, index) {
     const imageUrl = projectImages[project.title] || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop';
 
 
+
     let linksHtml = '';
 
     if (project.github_urls && project.github_urls.length > 0) {
@@ -142,6 +143,14 @@ function createProjectCard(project, index) {
         linksHtml += `
             <a href="${project.report_url}" class="project-link" target="_blank">
                 <i class="fas fa-file-pdf"></i> Read Report
+            </a>
+        `;
+    }
+
+    if (project.linkedin_url) {
+        linksHtml += `
+            <a href="${project.linkedin_url}" class="project-link" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn Post
             </a>
         `;
     }
@@ -193,7 +202,8 @@ function loadStaticProjects() {
             description: 'Developed under the supervision of a multidisciplinary research team and mentored through the MIT Sandbox Explorer Program, NeuraTech focused on decoding motor intent from EEG signals for assistive communication. Implemented an LDA-based model to classify left- vs right-hand motor imagery using µ- and β-band filtering, ICA-based artifact removal, and CSP feature extraction, enabling a real-time adaptive interface for paralyzed, non-verbal patients.',
             tags: ['Python', 'EEG', 'LDA', 'CSP', 'Healthcare'],
             icon: 'fa-brain',
-            github_url: 'https://github.com/IkrameTaggaa1947/NeuraTech'
+            github_url: 'https://github.com/IkrameTaggaa1947/NeuraTech',
+            linkedin_url: 'https://www.linkedin.com/feed/update/urn:li:activity:7284578586429173762/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFHUjM0Bj1742VNXXNdFrEPfY32_c1AB1CU'
         },
         {
             id: 3,
@@ -223,7 +233,8 @@ function loadStaticProjects() {
             github_urls: [
                 { label: 'Chatbot Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_Chatbot_for_HR' },
                 { label: 'Evaluation Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_evaluation_des_formations' }
-            ]
+            ],
+            linkedin_url: 'https://www.linkedin.com/feed/update/urn:li:activity:7418976796672626688/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFHUjM0Bj1742VNXXNdFrEPfY32_c1AB1CU'
         },
         {
             id: 6,
