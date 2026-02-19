@@ -155,14 +155,36 @@ function createProjectCard(project, index) {
         `;
     }
 
-    if (project.linkedin_url) {
-        linksHtml += `
-            <a href="${project.linkedin_url}" class="project-link" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn Post
-            </a>
-        `;
-    }
-
+    // Map tags to icons
+    const tagIcons = {
+        'Python': 'fa-python',
+        'ECG': 'fa-heartbeat',
+        'Random Forest': 'fa-tree',
+        'Transformers': 'fa-robot',
+        'Chatbot': 'fa-comments',
+        'EEG': 'fa-brain',
+        'LDA': 'fa-chart-bar',
+        'CSP': 'fa-wave-square',
+        'Healthcare': 'fa-notes-medical',
+        'LLM': 'fa-brain',
+        'RAG': 'fa-layer-group',
+        'Prompt Engineering': 'fa-terminal',
+        'YOLOv8': 'fa-eye',
+        'ResNet': 'fa-project-diagram',
+        'Robotics': 'fa-robot',
+        'Computer Vision': 'fa-eye',
+        'Docker': 'fa-docker',
+        'Airflow': 'fa-wind',
+        'Clustering': 'fa-object-group',
+        'HTML': 'fa-html5',
+        'CSS': 'fa-css3-alt',
+        'PHP': 'fa-php',
+        'Web App': 'fa-globe',
+        'React': 'fa-react',
+        'PostgreSQL': 'fa-database',
+        'Traceability': 'fa-search-location',
+        'Dashboard': 'fa-tachometer-alt'
+    };
     card.innerHTML = `
         <div class="project-image">
             <img src="${imageUrl}" alt="${project.title}" class="project-img">
@@ -174,7 +196,7 @@ function createProjectCard(project, index) {
             <h3 class="project-title">${project.title}</h3>
             <p class="project-description">${project.description}</p>
             <div class="project-tags">
-                ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                ${project.tags.map(tag => `<span class="tag"><i class="fas ${tagIcons[tag] || 'fa-tag'}"></i></span>`).join('')}
             </div>
             <div class="project-links">
                 ${linksHtml}
