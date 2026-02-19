@@ -121,6 +121,7 @@ function createProjectCard(project, index) {
 
     const imageUrl = projectImages[project.title] || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop';
 
+
     let linksHtml = '';
 
     if (project.github_urls && project.github_urls.length > 0) {
@@ -141,6 +142,14 @@ function createProjectCard(project, index) {
         linksHtml += `
             <a href="${project.report_url}" class="project-link" target="_blank">
                 <i class="fas fa-file-pdf"></i> Read Report
+            </a>
+        `;
+    }
+
+    if (project.linkedin_url) {
+        linksHtml += `
+            <a href="${project.linkedin_url}" class="project-link" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn Post
             </a>
         `;
     }
@@ -178,67 +187,86 @@ function loadStaticProjects() {
             github_url: 'https://github.com/IkrameTaggaa1947/ECG-Anomaly-Detection-',
             report_url: 'reports/ECG_report.pdf'
         },
-        {
-            id: 2,
-            title: 'NeuraTech – Brain-Computer Interface (BCI) Healthcare Startup',
+        id: 2,
+        title: 'NeuraTech – Brain-Computer Interface (BCI) Healthcare Startup',
+        description: 'Developed under the supervision of a multidisciplinary research team and mentored through the MIT Sandbox Explorer Program, NeuraTech focused on decoding motor intent from EEG signals for assistive communication. Implemented an LDA-based model to classify left- vs right-hand motor imagery using µ- and β-band filtering, ICA-based artifact removal, and CSP feature extraction, enabling a real-time adaptive interface for paralyzed, non-verbal patients.',
+        tags: ['Python', 'EEG', 'LDA', 'CSP', 'Healthcare'],
+        icon: 'fa-brain',
+        github_url: 'https://github.com/IkrameTaggaa1947/NeuraTech'
+        },
+{
+    id: 2,
+        title: 'NeuraTech – Brain-Computer Interface (BCI) Healthcare Startup',
             description: 'Developed under the supervision of a multidisciplinary research team and mentored through the MIT Sandbox Explorer Program, NeuraTech focused on decoding motor intent from EEG signals for assistive communication. Implemented an LDA-based model to classify left- vs right-hand motor imagery using µ- and β-band filtering, ICA-based artifact removal, and CSP feature extraction, enabling a real-time adaptive interface for paralyzed, non-verbal patients.',
-            tags: ['Python', 'EEG', 'LDA', 'CSP', 'Healthcare'],
-            icon: 'fa-brain',
-            github_url: 'https://github.com/IkrameTaggaa1947/NeuraTech'
-        },
-        {
-            id: 3,
-            title: 'Medical Chatbot',
+                tags: ['Python', 'EEG', 'LDA', 'CSP', 'Healthcare'],
+                    icon: 'fa-brain',
+                        github_url: 'https://github.com/IkrameTaggaa1947/NeuraTech',
+                            linkedin_url: 'https://www.linkedin.com/feed/update/urn:li:activity:7284578586429173762/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFHUjM0Bj1742VNXXNdFrEPfY32_c1AB1CU'
+},
+{
+    id: 3,
+        title: 'Medical Chatbot',
             description: 'Provides health-related answers by combining LLMs with a medical encyclopedia data. Solved hallucinations with recursive chunking and strict RAG constraints, improved accuracy with R.I.S.E. prompting, and implemented safety checks for sensitive queries.',
-            tags: ['Python', 'LLM', 'RAG', 'Prompt Engineering'],
-            icon: 'fa-comments-medical',
-            github_url: 'https://github.com/IkrameTaggaa1947/Medical-Chatbot-Using-LLM-'
-        },
-        // Robotics & Computer Vision
-        {
-            id: 4,
-            title: 'Automated Plastic Waste Sorting – Computer Vision & Robotics',
+                tags: ['Python', 'LLM', 'RAG', 'Prompt Engineering'],
+                    icon: 'fa-comments-medical',
+                        github_url: 'https://github.com/IkrameTaggaa1947/Medical-Chatbot-Using-LLM-'
+},
+// Robotics & Computer Vision
+{
+    id: 4,
+        title: 'Automated Plastic Waste Sorting – Computer Vision & Robotics',
             description: 'Developed a pipeline to detect water bottles, verify they are uncapped and empty, and trigger their delivery to a robotic shredder. Applied instance segmentation (YOLOv8) for bottle detection and classification (ResNet) to identify water brands, enabling real-time statistical tracking of shredded bottles.',
-            tags: ['Python', 'YOLOv8', 'ResNet', 'Robotics', 'Computer Vision'],
-            icon: 'fa-recycle',
-            github_url: 'https://github.com/IkrameTaggaa1947/Double_Segementation_Water_Level',
-            report_url: 'reports/Dossier_de_définition_robotique.pdf'
-        },
-        // Other Projects
-        {
-            id: 5,
-            title: 'Secure AI Platform for Safran – Chatbot & Training Evaluation Analytics',
-            description: 'Developed a secure internal chatbot using a RAG architecture to answer general employee queries from internal documentation, with anonymization, authentication, Dockerized deployment, and Apache Airflow for automatic data ingestion and embedding. In parallel, built an application for training evaluation tracking, displaying anonymized employee feedback and applying clustering models to group qualitative returns into actionable themes.',
+                tags: ['Python', 'YOLOv8', 'ResNet', 'Robotics', 'Computer Vision'],
+                    icon: 'fa-recycle',
+                        github_url: 'https://github.com/IkrameTaggaa1947/Double_Segementation_Water_Level',
+                            report_url: 'reports/Dossier_de_définition_robotique.pdf'
+},
+// Other Projects
+id: 5,
+    title: 'Secure AI Platform for Safran – Chatbot & Training Evaluation Analytics',
+        description: 'Developed a secure internal chatbot using a RAG architecture to answer general employee queries from internal documentation, with anonymization, authentication, Dockerized deployment, and Apache Airflow for automatic data ingestion and embedding. In parallel, built an application for training evaluation tracking, displaying anonymized employee feedback and applying clustering models to group qualitative returns into actionable themes.',
             tags: ['Python', 'RAG', 'Docker', 'Airflow', 'Clustering'],
-            icon: 'fa-shield-alt',
-            github_urls: [
-                { label: 'Chatbot Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_Chatbot_for_HR' },
-                { label: 'Evaluation Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_evaluation_des_formations' }
-            ]
+                icon: 'fa-shield-alt',
+                    github_urls: [
+                        { label: 'Chatbot Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_Chatbot_for_HR' },
+                        { label: 'Evaluation Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_evaluation_des_formations' }
+                    ]
         },
-        {
-            id: 6,
-            title: 'Accounting Closing Process – OCP Group',
+{
+    id: 5,
+        title: 'Secure AI Platform for Safran – Chatbot & Training Evaluation Analytics',
+            description: 'Developed a secure internal chatbot using a RAG architecture to answer general employee queries from internal documentation, with anonymization, authentication, Dockerized deployment, and Apache Airflow for automatic data ingestion and embedding. In parallel, built an application for training evaluation tracking, displaying anonymized employee feedback and applying clustering models to group qualitative returns into actionable themes.',
+                tags: ['Python', 'RAG', 'Docker', 'Airflow', 'Clustering'],
+                    icon: 'fa-shield-alt',
+                        github_urls: [
+                            { label: 'Chatbot Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_Chatbot_for_HR' },
+                            { label: 'Evaluation Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_evaluation_des_formations' }
+                        ],
+                            linkedin_url: 'https://www.linkedin.com/feed/update/urn:li:activity:7418976796672626688/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFHUjM0Bj1742VNXXNdFrEPfY32_c1AB1CU'
+},
+{
+    id: 6,
+        title: 'Accounting Closing Process – OCP Group',
             description: 'A web application for OCP to digitalize the accounting closing process, to track task completion, receive automated reminders, and ensure all steps are completed before month-end. Used HTML, CSS, and PHP.',
-            tags: ['HTML', 'CSS', 'PHP', 'Web App'],
-            icon: 'fa-calculator',
-            github_url: 'https://github.com/IkrameTaggaa1947/Accounting-Management-Web-App'
-        },
-        {
-            id: 7,
-            title: 'Palm Trace - DomSeeds',
+                tags: ['HTML', 'CSS', 'PHP', 'Web App'],
+                    icon: 'fa-calculator',
+                        github_url: 'https://github.com/IkrameTaggaa1947/Accounting-Management-Web-App'
+},
+{
+    id: 7,
+        title: 'Palm Trace - DomSeeds',
             description: 'A traceability web application for date palm trees that leverages agricultural data to analyze yield and monitor farm health. Used React and PostgreSQL (inside Lovable) to build an interactive map showing regions, tree blocks, and individual trees, alongside dashboards displaying KPIs.',
-            tags: ['React', 'PostgreSQL', 'Traceability', 'Dashboard'],
-            icon: 'fa-tree',
-            github_url: '#'
-        }
+                tags: ['React', 'PostgreSQL', 'Traceability', 'Dashboard'],
+                    icon: 'fa-tree',
+                        github_url: '#'
+}
     ];
 
-    const projectsGrid = document.getElementById('projectsGrid');
-    staticProjects.forEach((project, index) => {
-        const projectCard = createProjectCard(project, index);
-        projectsGrid.appendChild(projectCard);
-    });
+const projectsGrid = document.getElementById('projectsGrid');
+staticProjects.forEach((project, index) => {
+    const projectCard = createProjectCard(project, index);
+    projectsGrid.appendChild(projectCard);
+});
 }
 
 // Contact Form removed - using direct contact info instead
