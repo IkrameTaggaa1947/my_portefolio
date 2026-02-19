@@ -234,7 +234,8 @@ function loadStaticProjects() {
                 { label: 'Chatbot Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_Chatbot_for_HR' },
                 { label: 'Evaluation Repo', url: 'https://github.com/IkrameTaggaa1947/T2D_evaluation_des_formations' }
             ],
-            linkedin_url: 'https://www.linkedin.com/feed/update/urn:li:activity:7418976796672626688/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFHUjM0Bj1742VNXXNdFrEPfY32_c1AB1CU'
+            linkedin_url: 'https://www.linkedin.com/feed/update/urn:li:activity:7418976796672626688/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFHUjM0Bj1742VNXXNdFrEPfY32_c1AB1CU',
+            report_url: 'reports/Safran_HR_Chatbot_Report.pdf'
         },
         {
             id: 6,
